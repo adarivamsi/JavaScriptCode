@@ -1,5 +1,5 @@
 console.clear();
-console.log("Find Minimum in Rotated Sorted Array");
+console.log("Search in Rotated Sorted Array");
 
 var search = function (nums, target) {
   let l = 0;
