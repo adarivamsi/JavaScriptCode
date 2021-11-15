@@ -53,6 +53,26 @@ class DoubleLinkedList {
     }
   }
 
+  // Add at the particular location in the list
+  deleteAt(index) {
+    let currentNode = this.head;
+    if (index < this.sizeOfList()) {
+      for (let i = 0; i <= index; i++) {
+        if (i === index) {
+          let previousNode = currentNode.prev;
+          let nextNode = currentNode.next;
+          previousNode.next = nextNode;
+          nextNode.prev = previousNode;
+
+          return currentNode;
+        }
+        currentNode = currentNode.next;
+      }
+    } else {
+      console.log("Invalid Input!");
+    }
+  }
+
   // Delete head
   deleteHead() {
     //   If List if empty
@@ -153,6 +173,10 @@ list.append(4);
 list.printList();
 
 list.appendAt(7, 2);
+console.log(list);
+list.printList();
+
+list.deleteAt(2);
 console.log(list);
 list.printList();
 
