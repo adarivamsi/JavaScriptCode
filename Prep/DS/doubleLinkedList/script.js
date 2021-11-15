@@ -34,18 +34,19 @@ class DoubleLinkedList {
 
   // Add at the particular location in the list
   appendAt(value, index) {
+    let currentNode = this.head;
     if (index < this.sizeOfList()) {
-      for (let i = 0; i < index; i++) {
-        console.log(i, index);
+      for (let i = 0; i <= index; i++) {
         if (i === index) {
-          console.log("hi");
-          let oldHead = this.head;
-          this.head = new Node(value);
-          this.head.prev = this.head;
-          this.head.next = oldHead;
-          this.head.next = this.head;
-          this.head.prev = this.head;
+          let oldHead = currentNode;
+          let previousNode = currentNode.prev;
+          currentNode = new Node(value);
+          oldHead.prev = currentNode;
+          currentNode.next = oldHead;
+          previousNode.next = currentNode;
+          currentNode.prev = previousNode;
         }
+        currentNode = currentNode.next;
       }
     } else {
       console.log("Invalid Input!");
@@ -162,13 +163,13 @@ console.log(list.sizeOfList());
 
 console.log(list.search(3));
 
-// console.log(list.deleteHead());
-// list.printList();
+console.log(list.deleteHead());
+list.printList();
 
-// console.log(list.deleteTail());
-// list.printList();
-// console.log(list.deleteTail());
-// console.log(list.deleteTail());
-// console.log(list.deleteTail());
-// console.log(list.deleteTail());
-// list.printList();
+console.log(list.deleteTail());
+list.printList();
+console.log(list.deleteTail());
+console.log(list.deleteTail());
+console.log(list.deleteTail());
+console.log(list.deleteTail());
+list.printList();
