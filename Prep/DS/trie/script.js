@@ -65,7 +65,7 @@ class Trie {
 
     search(this.root, new String());
 
-    return words.length > 0 ? words : null;
+    return words.length > 0 ? words : "No words Added";
   }
 }
 
